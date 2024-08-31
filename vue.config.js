@@ -1,15 +1,7 @@
 module.exports = {
-  devServer: {
-    before: function (app) {
-      app.use((req, res, next) => {
-        res.setHeader('ngrok-skip-browser-warning', 'true');
-        next();
-      });
-    },
-    headers: {
-      "ngrok-skip-browser-warning": "true"
-    }
-  },
+  publicPath: process.env.NODE_ENV === 'production'
+      ? '/spirin/'
+      : '/',
   transpileDependencies: [
     "vuetify"
   ]
